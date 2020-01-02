@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context = "http://www.springframework.org/schema/context"
+       xmlns:aop ="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <bean id ="circle" class ="com.learning.spring.CircleClass">
+        <property name="pointA" ref="pointA"/>
+        <property name="pointB" ref="pointB"/>
+        <property name="pointC" ref="pointC"/>
+    </bean>
+
+    <bean id ="traingle" class ="com.learning.spring.Traingele"/>
+
+    <bean id = "pointA" class="com.learning.spring.Points">
+        <property name="x" value ="101"/>
+        <property name="y" value ="10"/>
+        <property name="z" value ="10"/>
+    </bean>
+    <bean id = "pointB" class="com.learning.spring.Points">
+        <property name="x" value ="10"/>
+        <property name="y" value ="101"/>
+        <property name="z" value ="10"/>
+    </bean>
+    <bean id = "pointC" class="com.learning.spring.Points">
+        <property name="x" value ="10"/>
+        <property name="y" value ="10"/>
+        <property name="z" value ="101"/>
+    </bean>
+
+    <bean id="octogane"  class="com.learning.spring.jsr250.Octogane">
+
+
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>message</value>
+
+            </list>
+
+        </property>
+
+    </bean>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.learning.spring"/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>
